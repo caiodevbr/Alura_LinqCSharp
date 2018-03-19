@@ -29,8 +29,8 @@ namespace Aula6
 
 
                 var query2 = from inf in contexto.ItemsNotaFiscal
-                            where inf.Faixa.Album.Artista.Nome == "Led Zeppelin"
-                            select new { totalDoItem = inf.Quantidade * inf.PrecoUnitario };
+                             where inf.Faixa.Album.Artista.Nome == "Led Zeppelin"
+                             select new { totalDoItem = inf.Quantidade * inf.PrecoUnitario };
 
                 var totalDoArtista = query2.Sum(q => q.totalDoItem);
 
@@ -44,17 +44,16 @@ namespace Aula6
 
 
                 var query3 = from inf in contexto.ItemsNotaFiscal
-                            where inf.Faixa.Album.Artista.Nome == "Led Zeppelin"
-                            group inf by inf.Faixa.Album into agrupado
-                            let vendasPorAlbum = agrupado.Sum(a => a.Quantidade * a.PrecoUnitario)
-                            orderby vendasPorAlbum
-                                descending
-                            select new
-                            {
-                                TituloDoAlbum = agrupado.Key.Titulo,
-                                TotalPorAlbum = vendasPorAlbum
-                            };
-
+                             where inf.Faixa.Album.Artista.Nome == "Led Zeppelin"
+                             group inf by inf.Faixa.Album into agrupado
+                             let vendasPorAlbum = agrupado.Sum(a => a.Quantidade * a.PrecoUnitario)
+                             orderby vendasPorAlbum descending
+                             select new
+                             {
+                                 TituloDoAlbum = agrupado.Key.Titulo,
+                                 TotalPorAlbum = vendasPorAlbum
+                             };
+                 
                 foreach (var agrupado in query3)
                 {
                     Console.WriteLine("{0}\t{1}",

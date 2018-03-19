@@ -155,8 +155,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>AluraTunesEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="AluraTunesEntities.edmx.diagram">
       <DependentUpon>AluraTunesEntities.edmx</DependentUpon>
     </None>
